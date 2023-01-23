@@ -20,6 +20,10 @@ public class User extends AbstractEntity implements Serializable {
 
     @Column(name = "name", nullable = false, unique = true)
     private String username;
+
+
+	@Column(name = "userid", nullable = false)
+	private int userid;
     
     @Column(name = "password", nullable = false)
     private String password;
@@ -45,7 +49,20 @@ public class User extends AbstractEntity implements Serializable {
     @OneToMany(mappedBy = "orderer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Order> orders = new ArrayList<Order>();
     
-    public User() {}
+    public User(String username, int userid, String password, String firstName, String lastName, String emailAddress, String phone_number, Date birthDate, Boolean subscribedToNewsletter) {
+		this.username=username;
+		this.userid=userid;
+		this.password=password;
+		this.firstName=firstName;
+		this.lastName=lastName;
+		this.emailAddress=emailAddress;
+		this.phoneNumber=phone_number;
+		this.birthDate=birthDate;
+		this.subscribedToNewsletter=subscribedToNewsletter;
+	}
+
+
+	public User() {}
 
 	public String getUsername() {
 		return username;
@@ -121,6 +138,14 @@ public class User extends AbstractEntity implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public int getUserid() {
+		return userid;
+	}
+
+	public void setUserid(int userid) {
+		this.userid = userid;
 	}
     
   

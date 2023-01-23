@@ -1,11 +1,18 @@
 package de.northcodes.course.jsfspring;
 
 import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 
 import javax.faces.webapp.FacesServlet;
 import javax.servlet.ServletContext;
 
+import de.northcodes.course.jsfspring.model.BillingAddress;
+import de.northcodes.course.jsfspring.model.User;
+import de.northcodes.course.jsfspring.persistence.BillingRepository;
+import de.northcodes.course.jsfspring.persistence.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -49,13 +56,16 @@ public class JsfSpringApplication extends SpringBootServletInitializer {
       return (args) -> {
         // save a few products
 
-        repository.save( new Product("Microphone", "Essential for every vocalist - this microphone makes your voice sound great. Suitable for any kind of music and any voice.", new BigDecimal("95.00"), "microphone"));
-        repository.save( new Product("Guitar", "This guitar sounds great and looks cool. Rock, blues or jazz, this guitar does it all.", new BigDecimal("995.00"), "guitar"));
-        repository.save( new Product("Saxophone", "Steal the show with this cool saxophone. Suitable for beginners as well as for advanced players.", new BigDecimal("1195.00"), "saxophone"));
-        repository.save( new Product("Bass Guitar", "Every band needs a solid bass guitar. This one will never let you down.", new BigDecimal("895.00"), "bassguitar"));
-        repository.save( new Product("Drum Kit", "This complete drum kit provides everything a drummer needs. Including an extra pair of sticks.", new BigDecimal("1249.00"), "drumkit"));
+        repository.save( new Product("Top Gear Show", "Essential for every car fan - this is the show any motorist likes", new BigDecimal("295.00"), "Top-Gear"));
+        repository.save( new Product("Grand Tour Show Tickets", "Enjoy Jeremy Clarkson, Richard Hammond and James May live. This show will take place near Chipping Norton.", new BigDecimal("325.00"), "The-Grand-Tour"));
+        repository.save( new Product("AC/DC Concert", "Everybody should attend an AC/DC Concert. It's a highlight.", new BigDecimal("195.00"), "AC-DC"));
+        repository.save( new Product("McLaren Driving Experience", "Drive a Mclaren Senna around the Nurburgring. This one will never let you down. Maybee its the most spectacular thing you have ever done.", new BigDecimal("895.00"), "McLaren"));
+        repository.save( new Product("Porsche Museum", "Visit the Porsche Museum in Stuttgart-Zuffenhausen and see all the famous Porsche cars.", new BigDecimal("49.00"), "Porsche-Museum"));
 
-        // fetch all products
+         // repository.save(new BillingAddress("1", "Peter", "Weber", "Magicstreet 1", "Magierhausen", "12345", "Germany"));
+
+
+          // fetch all products
         log.info("Products found with findAll():");
         log.info("-------------------------------");
         for (Product product : repository.findAll()) {
@@ -72,4 +82,34 @@ public class JsfSpringApplication extends SpringBootServletInitializer {
 
       };
     }
+
+
+    @Bean
+    public CommandLineRunner demo2(UserRepository repository) {
+        return (args) -> {
+            // save a few products
+            DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
+            Date d1 = df.parse("12-10-2011");
+
+            repository.save(new User("user1",1,"user1","uFirstName","uLastName","test@test.de","0177-1515151", d1,false));
+
+        };
+    }
+
+
+    @Bean
+    public CommandLineRunner demo1(BillingRepository repository) {
+        return (args) -> {
+            // save a few products
+
+
+            repository.save(new BillingAddress(1, "Peter", "Weber", "Magicstreet 1", "Magierhausen", 12345, "Germany"));
+            repository.save(new BillingAddress(1, "Vanessa", "Weber", "Playstationstreet 5", "Sonyhausen", 54321, "Germany"));
+            repository.save(new BillingAddress(1, "Manuel", "Weber", "Dominusstreet 24", "Raketenhausen", 99559, "Germany"));
+        };
+    }
+
+
+
+
 }
