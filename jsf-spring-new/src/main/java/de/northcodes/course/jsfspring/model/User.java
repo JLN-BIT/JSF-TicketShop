@@ -48,6 +48,9 @@ public class User extends AbstractEntity implements Serializable {
 
     @OneToMany(mappedBy = "orderer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Order> orders = new ArrayList<Order>();
+
+	//@OneToMany(mappedBy = "billingAddress", cascade = CascadeType.ALL)
+	//private List<BillingAddress> BillingAddress = new ArrayList<>();
     
     public User(String username, int userid, String password, String firstName, String lastName, String emailAddress, String phone_number, Date birthDate, Boolean subscribedToNewsletter) {
 		this.username=username;

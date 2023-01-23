@@ -17,5 +17,5 @@ public class Billing {
     @Autowired
     private BillingService billingService;
 
-    //public List<BillingAddress> getProducts() { return BillingService.getAllBillingAdresses(1); }
+    public List<BillingAddress> getBillingAddresses(String username) { return billingService.getAllBillingAdresses(username);}
 }

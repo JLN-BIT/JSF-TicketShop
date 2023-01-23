@@ -3,10 +3,10 @@ package de.northcodes.course.jsfspring.model;
 import de.northcodes.course.jsfspring.model.AbstractEntity;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -34,6 +34,12 @@ public class BillingAddress  extends AbstractEntity implements Serializable {
     private int zipCode;
     @Column(name = "country", nullable = false)
     private String country;
+
+  //  @ManyToOne(fetch = FetchType.LAZY)
+  //  @JoinColumn(name = "fk_user",referencedColumnName="id",nullable=false,unique=false)
+  //  private User user;
+    public BillingAddress() {
+    }
 
     public BillingAddress(int userid, String firstName, String lastName, String streetAddress, String city, int zipCode, String country) {
         this.userid=userid;
@@ -100,5 +106,6 @@ public class BillingAddress  extends AbstractEntity implements Serializable {
     public void setUserid(int userid) {
         this.userid = userid;
     }
+
 
 }
