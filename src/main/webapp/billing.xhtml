@@ -31,8 +31,10 @@
                         <f:validateRegex pattern="[A-Za-z0-9]{2,20}"/>
                     </h:inputText>
                     <br/>
-                    <p>#{billing.getBillingAddresses(userDetails.user)[0].firstName}</p>
-
+                    <p>#{billing.getBillingAddresses(userDetails.user)[0].firstName} #{billing.getBillingAddresses(userDetails.user)[0].lastName} </p>
+                    <p>#{billing.getBillingAddresses(userDetails.user)[0].streetAddress} </p>
+                    <p>#{billing.getBillingAddresses(userDetails.user)[0].zipCode} #{billing.getBillingAddresses(userDetails.user)[0].city} </p>
+                    <p>#{billing.getBillingAddresses(userDetails.user)[0].country}  </p>
 
 
 
