@@ -57,23 +57,27 @@
 
                         <ui:repeat value="#{billing.getBillingAddresses(userDetails.user)}" var="billingAddress" varStatus="status">
                             <tr>
-                                <ui:fragment rendered="#{status.index == 0}" >
-                            <td id="#{billingAddress.id}" class="billing-address billing-address-visible" >
+                               <!-- <ui:fragment rendered="#{status.index == 0}" >-->
+                            <td id="#{billingAddress.id}" class="#{status.index eq 0? 'billing-address billing-address-visible' :  'billing-address billing-address-invisible'}" >
                                 <p>#{status.index}</p>
                                 <p>#{billingAddress.country}</p>
                                 <p>#{billingAddress.firstName}</p>
                             </td>
-                                    <td>  <button type="button"  onclick="callStyle(#{billingAddress.id})"> - </button></td>
-                                </ui:fragment>
+                                  <td>  <button type="button"  onclick="callStyle(#{billingAddress.id})"> #{status.index eq 0? '-':'+' }</button></td>
+                                <!-- </ui:fragment> -->
 
-                                <ui:fragment rendered="#{status.index != 0}" >
-                                <td id="#{billingAddress.id}" class="billing-address billing-address-invisible" >
-                                    <p>#{status.index}</p>
-                                    <p>#{billingAddress.country}</p>
-                                    <p>#{billingAddress.firstName}</p>
-                                </td>
-                                    <td>  <button type="button"  onclick="callStyle(#{billingAddress.id})"> + </button></td>
-                            </ui:fragment>
+                                <!--     <ui:fragment rendered="#{status.index != 0}" >
+                                    <td id="#{billingAddress.id}" class="billing-address billing-address-invisible" >
+                                        <p>#{status.index}</p>
+                                        <p>#{billingAddress.country}</p>
+                                        <p>#{billingAddress.firstName}</p>
+                                    </td>
+                                        <td>  <button type="button"  onclick="callStyle(#{billingAddress.id})"> #{status.index == 0 ? -:+ } </button></td>
+                                </ui:fragment>
+                                    <ui:fragment rendered="#{status.index == 0}" >
+
+                                    billing-address billing-address-visible -->
+
 
 
                             </tr>
