@@ -76,3 +76,20 @@ body > footer > p {
     float: left;
     padding-right: 1em;
 }
+
+td.billing-address{
+
+}
+
+td.billing-address-visible{
+    visibility:unset;
+}
+
+td.billing-address-invisible{
+   display:none;
+}
+billing-address-mouse-enabled{
+}
+
+billing-address-mouse-disabled{
+}
