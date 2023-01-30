@@ -26,10 +26,15 @@
 
                                      if(element.id!=id){
                                      element.getElementsByClassName("billing-address")[0].className="billing-address billing-address-invisible";
-                                         element.getElementsByClassName("billing-button")[0].value='+';
+                                         element.getElementsByClassName("billing-button")[0].textContent='+';
+                                          element.getElementsByClassName("billing-button")[0].disabled=false;
+
                                      }else {
                                       element.getElementsByClassName("billing-address")[0].className="billing-address billing-address-visible";
-                                         element.getElementsByClassName("billing-button")[0].value='-';
+                                         element.getElementsByClassName("billing-button")[0].textContent='-';
+                                          element.getElementsByClassName("billing-button")[0].disabled=true;
+
+
                                      }
                             });
                         }
@@ -37,7 +42,7 @@
 
         <section>
             <h:messages styleClass="validation-messages"/>
-            <h:form>
+
                 <h:panelGrid columns="2" styleClass="form-grid" columnClasses="form-column-label,form-column-input">
 
                     <p>#{userDetails.user.username}</p>
@@ -54,17 +59,17 @@
 
                         <ui:repeat value="#{billing.getBillingAddresses(userDetails.user)}" var="billingAddress" varStatus="status">
                             <tr id="#{billingAddress.id}" class="billing-address-row">
+                                <td>
+                                    <button type="button" class="billing-button" onclick="callStyle(#{billingAddress.id})"  > #{status.index == 0 ? '-': '+'} </button>
+                                </td>
+                                <td class="#{status.index == 0 ? 'billing-address billing-address-visible': 'billing-address billing-address-invisible'}">
+                                    <p>Eintrag Nummer #{status.index +1}</p>
+                                    <p>#{billing.getBillingAddresses(userDetails.user)[0].firstName} #{billing.getBillingAddresses(userDetails.user)[0].lastName} </p>
+                                    <p>#{billing.getBillingAddresses(userDetails.user)[0].streetAddress} </p>
+                                    <p>#{billing.getBillingAddresses(userDetails.user)[0].zipCode} #{billing.getBillingAddresses(userDetails.user)[0].city} </p>
+                                    <p>#{billing.getBillingAddresses(userDetails.user)[0].country}  </p>
+                                </td>
 
-                            <td class="#{status.index == 0 ? 'billing-address billing-address-visible': 'billing-address billing-address-invisible'}">
-                                <p>Eintrag Nummer #{status.index +1}</p>
-                                <p>#{billing.getBillingAddresses(userDetails.user)[0].firstName} #{billing.getBillingAddresses(userDetails.user)[0].lastName} </p>
-                                <p>#{billing.getBillingAddresses(userDetails.user)[0].streetAddress} </p>
-                                <p>#{billing.getBillingAddresses(userDetails.user)[0].zipCode} #{billing.getBillingAddresses(userDetails.user)[0].city} </p>
-                                <p>#{billing.getBillingAddresses(userDetails.user)[0].country}  </p>
-                            </td>
-                            <td>
-                                <button type="button" class="billing-button" onclick="callStyle(#{billingAddress.id})"> #{status.index == 0 ? '-': '+'} </button>
-                            </td>
 
 
 
@@ -79,9 +84,9 @@
                     </table>
 
                     <h:outputText value=""/>
-                    <h:commandButton value="Submit" action="#{userDetails.submit}"/>
+                    <h:form> <h:commandButton value="Submit" action="#{userDetails.submit}"/> </h:form><!-- TO REMOVE -->
                 </h:panelGrid>
-            </h:form>
+
         </section>
     </ui:define>
 </ui:composition>
