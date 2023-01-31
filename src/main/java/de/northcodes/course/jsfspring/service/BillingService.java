@@ -10,4 +10,7 @@ public interface BillingService {
     public void createBillingAdress(String username,String firstName, String lastName,  int zipCode, String city, String streetAddress, String country );
 
     public  List<BillingAddress> getAllBillingAdresses(User owner);
+
+
+    public void setBillingAddress(User owner);
 }

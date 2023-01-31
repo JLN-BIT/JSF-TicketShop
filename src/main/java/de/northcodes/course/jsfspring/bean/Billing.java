@@ -19,4 +19,8 @@ public class Billing {
     private BillingService billingService;
 
     public List<BillingAddress> getBillingAddresses(User owner) { return billingService.getAllBillingAdresses(owner);}
+
+    public void setBillingAddress(User owner){
+
+    }
 }

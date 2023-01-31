@@ -38,6 +38,10 @@
                                      }
                             });
                         }
+
+                        function show_alert() {
+                              //alert("Not implemented yet!");
+                            }
                     </script>
 
         <section>
@@ -63,7 +67,7 @@
                                     <button type="button" class="billing-button" onclick="callStyle(#{billingAddress.id})"  > #{status.index == 0 ? '-': '+'} </button>
                                 </td>
                                 <td class="#{status.index == 0 ? 'billing-address billing-address-visible': 'billing-address billing-address-invisible'}">
-                                    <p>Billing Address Number #{status.index +1}</p>
+                                    <h5>Billing Address Number #{status.index +1}</h5>
                                     <p>#{billing.getBillingAddresses(userDetails.user)[0].firstName} #{billing.getBillingAddresses(userDetails.user)[0].lastName} </p>
                                     <p>#{billing.getBillingAddresses(userDetails.user)[0].streetAddress} </p>
                                     <p>#{billing.getBillingAddresses(userDetails.user)[0].zipCode} #{billing.getBillingAddresses(userDetails.user)[0].city} </p>
@@ -90,6 +94,7 @@
                                      requiredMessage="Please enter your first name."
                                      validatorMessage="Please enter a first name between 1 and 30 characters long.">
                             <f:validateLength minimum="1" maximum="30"/>
+
                         </h:inputText>
                         <br/>
                         <h:outputLabel for="lastName">Last name: </h:outputLabel>
@@ -105,9 +110,9 @@
                         <h:outputLabel for="streetAddress">Street &amp; House Number: </h:outputLabel>
                         <h:inputText id="streetAddress"
                                      value=""
-                                     size="50"
+                                     size="100"
                                      required="true"
-                                     requiredMessage="Please enter your first name."
+                                     requiredMessage="Please enter your street and house number."
                                      validatorMessage="Please enter a street and house number.">
                             <f:validateLength minimum="1" maximum="50"/>
                         </h:inputText>
@@ -118,8 +123,11 @@
                                      size="10"
                                      required="true"
                                      requiredMessage="Please enter your zip code."
-                                     validatorMessage="Please enter a zip code between 1 and 10 characters long.">
+                                     validatorMessage="Please enter a zip code between 1 and 10 characters long."
+                                     converter="javax.faces.Integer"
+                                     onkeypress="if(event.which &lt; 48 || event.which &gt; 57) return false;">
                             <f:validateLength minimum="1" maximum="10"/>
+
                         </h:inputText>
 
                         <h:outputLabel for="city">    City: </h:outputLabel>
@@ -144,7 +152,8 @@
                         <br/>
                         <br/>
                         <br/>
-                        <h:commandButton value="Submit" action="#{userDetails.submit}"/> </h:form><!-- TO REMOVE -->
+                        <h:commandButton value="Submit" onclick="show_alert();" action="#{billing.setBillingAddress(userDetails.user)}" />
+                    </h:form><!-- TO ADJUST  -->
                 </h:panelGrid>
 
         </section>

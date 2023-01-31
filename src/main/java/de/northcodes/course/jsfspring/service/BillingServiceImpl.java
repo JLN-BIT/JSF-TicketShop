@@ -29,4 +29,9 @@ public class BillingServiceImpl implements BillingService{
         log.info("getAllBillingAdresses called with user " + owner );
         return billingRepository.findByOwner(owner);
     }
+
+    @Override
+    public void setBillingAddress(User owner){
+        billingRepository.createByOwner(owner);
+    }
 }

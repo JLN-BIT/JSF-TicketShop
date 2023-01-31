@@ -14,12 +14,6 @@ import java.util.List;
 public class BillingAddress  extends AbstractEntity implements Serializable {
 
 
-
-
-
-
-
-
     @Column(name = "firstName", nullable = false)
     private String firstName;
 

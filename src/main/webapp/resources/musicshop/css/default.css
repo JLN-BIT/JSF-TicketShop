@@ -83,6 +83,7 @@ td.billing-address{
 
 td.billing-address-visible{
     visibility:unset;
+    border: 1px solid;
 }
 
 td.billing-address-invisible{

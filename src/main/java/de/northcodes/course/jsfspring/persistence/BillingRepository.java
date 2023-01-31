@@ -11,4 +11,6 @@ public interface BillingRepository extends CrudRepository<BillingAddress, Long> 
 
 
     List<BillingAddress> findByOwner(User owner);
+
+   void createByOwner(User owner);
 }
