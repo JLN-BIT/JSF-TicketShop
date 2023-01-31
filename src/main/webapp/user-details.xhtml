@@ -40,7 +40,7 @@
                                    required="true" 
                                    requiredMessage="Please enter a password."/>
 
-                    <h:outputLabel for="firstName">First name</h:outputLabel>
+                    <h:outputLabel for="firstName">First name   </h:outputLabel>
                     <h:inputText id="firstName" 
                                  value="#{userDetails.user.firstName}" 
                                  size="30"
@@ -49,6 +49,8 @@
                                  validatorMessage="Please enter a first name between 1 and 30 characters long.">
                         <f:validateLength minimum="1" maximum="30"/>
                     </h:inputText>
+
+
 
                     <h:outputLabel for="lastName">Last name</h:outputLabel>
                     <h:inputText id="lastName" 

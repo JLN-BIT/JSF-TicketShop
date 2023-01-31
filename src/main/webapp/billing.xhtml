@@ -45,13 +45,13 @@
 
                 <h:panelGrid columns="2" styleClass="form-grid" columnClasses="form-column-label,form-column-input">
 
-                    <p>#{userDetails.user.username}</p>
+                    <!-- <p>#{userDetails.user.username}</p>
 
-                    <br/>
-                    <!--  <p>#{billing.getBillingAddresses(userDetails.user)[0].firstName} #{billing.getBillingAddresses(userDetails.user)[0].lastName} </p>
-                    <p>#{billing.getBillingAddresses(userDetails.user)[0].streetAddress} </p>
-                       <p>#{billing.getBillingAddresses(userDetails.user)[0].zipCode} #{billing.getBillingAddresses(userDetails.user)[0].city} </p>
-                       <p>#{billing.getBillingAddresses(userDetails.user)[0].country}  </p>-->
+                     <br/>
+                      <p>#{billing.getBillingAddresses(userDetails.user)[0].firstName} #{billing.getBillingAddresses(userDetails.user)[0].lastName} </p>
+                     <p>#{billing.getBillingAddresses(userDetails.user)[0].streetAddress} </p>
+                        <p>#{billing.getBillingAddresses(userDetails.user)[0].zipCode} #{billing.getBillingAddresses(userDetails.user)[0].city} </p>
+                        <p>#{billing.getBillingAddresses(userDetails.user)[0].country}  </p>-->
 
 
 
@@ -63,18 +63,12 @@
                                     <button type="button" class="billing-button" onclick="callStyle(#{billingAddress.id})"  > #{status.index == 0 ? '-': '+'} </button>
                                 </td>
                                 <td class="#{status.index == 0 ? 'billing-address billing-address-visible': 'billing-address billing-address-invisible'}">
-                                    <p>Eintrag Nummer #{status.index +1}</p>
+                                    <p>Billing Address Number #{status.index +1}</p>
                                     <p>#{billing.getBillingAddresses(userDetails.user)[0].firstName} #{billing.getBillingAddresses(userDetails.user)[0].lastName} </p>
                                     <p>#{billing.getBillingAddresses(userDetails.user)[0].streetAddress} </p>
                                     <p>#{billing.getBillingAddresses(userDetails.user)[0].zipCode} #{billing.getBillingAddresses(userDetails.user)[0].city} </p>
                                     <p>#{billing.getBillingAddresses(userDetails.user)[0].country}  </p>
                                 </td>
-
-
-
-
-
-
 
                             </tr>
 
@@ -82,9 +76,75 @@
                         </ui:repeat>
 
                     </table>
-
+                    <br/><br/>
+                    <h4>Add new Billing Address</h4>
                     <h:outputText value=""/>
-                    <h:form> <h:commandButton value="Submit" action="#{userDetails.submit}"/> </h:form><!-- TO REMOVE -->
+
+                    <h:form>
+                        <br/>
+                        <h:outputLabel for="firstName">First name: </h:outputLabel>
+                        <h:inputText id="firstName"
+                                     value="#{userDetails.user.firstName}"
+                                     size="30"
+                                     required="true"
+                                     requiredMessage="Please enter your first name."
+                                     validatorMessage="Please enter a first name between 1 and 30 characters long.">
+                            <f:validateLength minimum="1" maximum="30"/>
+                        </h:inputText>
+                        <br/>
+                        <h:outputLabel for="lastName">Last name: </h:outputLabel>
+                        <h:inputText id="lastName"
+                                     value="#{userDetails.user.lastName}"
+                                     size="30"
+                                     required="true"
+                                     requiredMessage="Please enter your last name."
+                                     validatorMessage="Please enter a last name between 1 and 30 characters long.">
+                            <f:validateLength minimum="1" maximum="30"/>
+                        </h:inputText>
+                        <br/>
+                        <h:outputLabel for="streetAddress">Street &amp; House Number: </h:outputLabel>
+                        <h:inputText id="streetAddress"
+                                     value=""
+                                     size="50"
+                                     required="true"
+                                     requiredMessage="Please enter your first name."
+                                     validatorMessage="Please enter a street and house number.">
+                            <f:validateLength minimum="1" maximum="50"/>
+                        </h:inputText>
+                        <br/>
+                        <h:outputLabel for="zipCode">Zip-Code: </h:outputLabel>
+                        <h:inputText id="zipCode"
+                                     value=""
+                                     size="10"
+                                     required="true"
+                                     requiredMessage="Please enter your zip code."
+                                     validatorMessage="Please enter a zip code between 1 and 10 characters long.">
+                            <f:validateLength minimum="1" maximum="10"/>
+                        </h:inputText>
+
+                        <h:outputLabel for="city">    City: </h:outputLabel>
+                        <h:inputText id="city"
+                                     value=""
+                                     size="30"
+                                     required="true"
+                                     requiredMessage="Please enter your city."
+                                     validatorMessage="Please enter a city between 1 and 30 characters long.">
+                            <f:validateLength minimum="1" maximum="30"/>
+                        </h:inputText>
+                        <br/>
+                        <h:outputLabel for="country">Country: </h:outputLabel>
+                        <h:inputText id="country"
+                                     value=""
+                                     size="30"
+                                     required="true"
+                                     requiredMessage="Please enter your country."
+                                     validatorMessage="Please enter a country between 1 and 30 characters long.">
+                            <f:validateLength minimum="1" maximum="30"/>
+                        </h:inputText>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <h:commandButton value="Submit" action="#{userDetails.submit}"/> </h:form><!-- TO REMOVE -->
                 </h:panelGrid>
 
         </section>
