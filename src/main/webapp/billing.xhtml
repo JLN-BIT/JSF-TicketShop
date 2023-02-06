@@ -68,10 +68,10 @@
                                 </td>
                                 <td class="#{status.index == 0 ? 'billing-address billing-address-visible': 'billing-address billing-address-invisible'}">
                                     <h5>Billing Address Number #{status.index +1}</h5>
-                                    <p>#{billing.getBillingAddresses(userDetails.user)[0].firstName} #{billing.getBillingAddresses(userDetails.user)[0].lastName} </p>
-                                    <p>#{billing.getBillingAddresses(userDetails.user)[0].streetAddress} </p>
-                                    <p>#{billing.getBillingAddresses(userDetails.user)[0].zipCode} #{billing.getBillingAddresses(userDetails.user)[0].city} </p>
-                                    <p>#{billing.getBillingAddresses(userDetails.user)[0].country}  </p>
+                                    <p>#{billing.getBillingAddresses(userDetails.user)[status.index].firstName} #{billing.getBillingAddresses(userDetails.user)[status.index].lastName} </p>
+                                    <p>#{billing.getBillingAddresses(userDetails.user)[status.index].streetAddress} </p>
+                                    <p>#{billing.getBillingAddresses(userDetails.user)[status.index].zipCode} #{billing.getBillingAddresses(userDetails.user)[status.index].city} </p>
+                                    <p>#{billing.getBillingAddresses(userDetails.user)[status.index].country}  </p>
                                 </td>
 
                             </tr>
@@ -86,7 +86,7 @@
 
                     <h:form>
                         <br/>
-                        <h:outputLabel for="firstName">First name: </h:outputLabel>
+                      <!--  <h:outputLabel for="firstName">First name: </h:outputLabel>
                         <h:inputText id="firstName"
                                      value="#{userDetails.user.firstName}"
                                      size="30"
@@ -105,7 +105,7 @@
                                      requiredMessage="Please enter your last name."
                                      validatorMessage="Please enter a last name between 1 and 30 characters long.">
                             <f:validateLength minimum="1" maximum="30"/>
-                        </h:inputText>
+                        </h:inputText> -->
                         <br/>
                         <h:outputLabel for="streetAddress">Street &amp; House Number: </h:outputLabel>
                         <h:inputText id="streetAddress"
@@ -152,8 +152,8 @@
                         <br/>
                         <br/>
                         <br/>
-                        <h:commandButton value="Submit" onclick="show_alert();" action="#{billing.setBillingAddress(userDetails.user)}" />
-                    </h:form><!-- TO ADJUST  -->
+                        <h:commandButton value="Submit" onclick="show_alert();"  />
+                    </h:form> <!-- action="{billing.setBillingAddress(userDetails.user)}" TO ADJUST  -->
                 </h:panelGrid>
 
         </section>

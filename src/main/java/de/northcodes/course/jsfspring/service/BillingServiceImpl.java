@@ -32,6 +32,7 @@ public class BillingServiceImpl implements BillingService{
 
     @Override
     public void setBillingAddress(User owner){
-        billingRepository.createByOwner(owner);
+        //BillingAddress ba = new BillingAddress(owner);
+       // billingRepository.createByOwner(owner);
     }
 }
