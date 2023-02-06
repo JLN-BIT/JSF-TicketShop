@@ -86,9 +86,9 @@
 
                     <h:form>
                         <br/>
-                      <!--  <h:outputLabel for="firstName">First name: </h:outputLabel>
+                       <h:outputLabel for="firstName">First name: </h:outputLabel>
                         <h:inputText id="firstName"
-                                     value="#{userDetails.user.firstName}"
+                                     value="#{billing.newBillingAddress.firstName}"
                                      size="30"
                                      required="true"
                                      requiredMessage="Please enter your first name."
@@ -99,18 +99,18 @@
                         <br/>
                         <h:outputLabel for="lastName">Last name: </h:outputLabel>
                         <h:inputText id="lastName"
-                                     value="#{userDetails.user.lastName}"
+                                     value="#{billing.newBillingAddress.lastName}"
                                      size="30"
                                      required="true"
                                      requiredMessage="Please enter your last name."
                                      validatorMessage="Please enter a last name between 1 and 30 characters long.">
                             <f:validateLength minimum="1" maximum="30"/>
-                        </h:inputText> -->
+                        </h:inputText>
                         <br/>
                         <h:outputLabel for="streetAddress">Street &amp; House Number: </h:outputLabel>
                         <h:inputText id="streetAddress"
-                                     value=""
-                                     size="100"
+                                     value="#{billing.newBillingAddress.streetAddress}"
+                                     size="70"
                                      required="true"
                                      requiredMessage="Please enter your street and house number."
                                      validatorMessage="Please enter a street and house number.">
@@ -119,7 +119,7 @@
                         <br/>
                         <h:outputLabel for="zipCode">Zip-Code: </h:outputLabel>
                         <h:inputText id="zipCode"
-                                     value=""
+                                     value="#{billing.newBillingAddress.zipCode}"
                                      size="10"
                                      required="true"
                                      requiredMessage="Please enter your zip code."
@@ -132,7 +132,7 @@
 
                         <h:outputLabel for="city">    City: </h:outputLabel>
                         <h:inputText id="city"
-                                     value=""
+                                     value="#{billing.newBillingAddress.city}"
                                      size="30"
                                      required="true"
                                      requiredMessage="Please enter your city."
@@ -142,7 +142,7 @@
                         <br/>
                         <h:outputLabel for="country">Country: </h:outputLabel>
                         <h:inputText id="country"
-                                     value=""
+                                     value="#{billing.newBillingAddress.country}"
                                      size="30"
                                      required="true"
                                      requiredMessage="Please enter your country."
@@ -152,7 +152,7 @@
                         <br/>
                         <br/>
                         <br/>
-                        <h:commandButton value="Submit" onclick="show_alert();"  />
+                        <h:commandButton value="Submit" onclick="show_alert();" action="#{billing.saveNewBillingAddress}"  />
                     </h:form> <!-- action="{billing.setBillingAddress(userDetails.user)}" TO ADJUST  -->
                 </h:panelGrid>
 

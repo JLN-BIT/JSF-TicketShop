@@ -27,7 +27,7 @@ public class BillingAddress  extends AbstractEntity implements Serializable {
     private String city;
 
     @Column(name = "zipCode", nullable = false)
-    private int zipCode;
+    private Integer zipCode;
     @Column(name = "country", nullable = false)
     private String country;
 
@@ -80,11 +80,11 @@ public class BillingAddress  extends AbstractEntity implements Serializable {
     }
 
 
-    public int getZipCode() {
+    public Integer getZipCode() {
         return zipCode;
     }
 
-    public void setZipCode(int zipCode) {
+    public void setZipCode(Integer zipCode) {
         this.zipCode = zipCode;
     }
 
@@ -96,5 +96,11 @@ public class BillingAddress  extends AbstractEntity implements Serializable {
         this.country = country;
     }
 
+    public User getOwner() {
+        return owner;
+    }
 
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
 }

@@ -1,6 +1,5 @@
 package de.northcodes.course.jsfspring.service;
 
-import de.northcodes.course.jsfspring.bean.Billing;
 import de.northcodes.course.jsfspring.model.BillingAddress;
 import de.northcodes.course.jsfspring.model.User;
 import de.northcodes.course.jsfspring.persistence.BillingRepository;
@@ -10,11 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 @Service
-public class BillingServiceImpl implements BillingService{
+public class BillingServiceImpl implements BillingService {
     private static final Logger log = LoggerFactory.getLogger(BillingServiceImpl.class);
     @Autowired
     BillingRepository billingRepository;
@@ -26,13 +23,11 @@ public class BillingServiceImpl implements BillingService{
 
     @Override
     public List<BillingAddress> getAllBillingAdresses(User owner) {
-        log.info("getAllBillingAdresses called with user " + owner );
+        log.info("getAllBillingAdresses called with user " + owner);
         return billingRepository.findByOwner(owner);
     }
 
-    @Override
-    public void setBillingAddress(User owner){
-        //BillingAddress ba = new BillingAddress(owner,);
-       // billingRepository.createByOwner(owner);
+    public BillingAddress setBillingAddress(BillingAddress newBillingAddress) {
+        return billingRepository.save(newBillingAddress);
     }
 }

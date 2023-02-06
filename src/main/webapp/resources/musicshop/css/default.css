@@ -96,16 +96,21 @@ billing-address-mouse-disabled{
 }
 input#j_idt19\:firstName {
     margin-left: 7.9em;
+   margin-bottom: 0.2em;
 }
 input#j_idt19\:lastName {
     margin-left: 8em;
+    margin-bottom: 0.2em;
 }
 input#j_idt19\:streetAddress {
     margin-left: 0.85em;
+    margin-bottom: 0.2em;
 }
 input#j_idt19\:country {
     margin-left: 9.4em;
+    margin-bottom: 0.2em;
 }
 input#j_idt19\:zipCode {
     margin-left: 8.65em;
+    margin-bottom: 0.2em;
 }

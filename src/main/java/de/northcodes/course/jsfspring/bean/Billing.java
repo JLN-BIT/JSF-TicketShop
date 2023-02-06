@@ -3,27 +3,39 @@ package de.northcodes.course.jsfspring.bean;
 import de.northcodes.course.jsfspring.model.BillingAddress;
 import de.northcodes.course.jsfspring.model.User;
 import de.northcodes.course.jsfspring.service.BillingService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+
 import javax.annotation.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
+
 import java.util.List;
 
-@RequestScoped
+@SessionScoped
 @Component
 @ManagedBean
-public class Billing {
+public class Billing  {
 
     @Autowired
     private BillingService billingService;
 
-    private BillingAddress billingAddress;
+    @Autowired
+    private UserManager userManager;
+
+    private final BillingAddress newBillingAddress = new BillingAddress();
+
+    public BillingAddress getNewBillingAddress(){return newBillingAddress; }
 
 
     public List<BillingAddress> getBillingAddresses(User owner) { return billingService.getAllBillingAdresses(owner);}
 
-    public void setBillingAddress(User owner){
+    public void saveNewBillingAddress(){
+        newBillingAddress.setOwner(userManager.getCurrentUser());
+        billingService.setBillingAddress(newBillingAddress);
+
+
 
     }
 }
