@@ -114,3 +114,15 @@ input#j_idt19\:zipCode {
     margin-left: 8.65em;
     margin-bottom: 0.2em;
 }
+input[type=text] {
+    background-color: #3CBC8D;
+    color: black;
+    transition: width 0.8s ease-in-out;
+}
+
+ input[type=text]:focus {
+   width: 40%;
+ }
+ input#j_idt19\:zipCode:focus {
+    width: 20%;
+  }
