@@ -18,6 +18,9 @@ public class Billing {
     @Autowired
     private BillingService billingService;
 
+    private BillingAddress billingAddress;
+
+
     public List<BillingAddress> getBillingAddresses(User owner) { return billingService.getAllBillingAdresses(owner);}
 
     public void setBillingAddress(User owner){
