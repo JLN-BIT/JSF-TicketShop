@@ -1,0 +1,49 @@
+td.billing-address{
+
+}
+
+td.billing-address-visible{
+    visibility:unset;
+    border: 1px solid;
+}
+
+td.billing-address-invisible{
+   display:none;
+}
+billing-address-mouse-enabled{
+}
+
+billing-address-mouse-disabled{
+}
+input#j_idt19\:firstName {
+    margin-left: 7.9em;
+   margin-bottom: 0.2em;
+}
+input#j_idt19\:lastName {
+    margin-left: 8em;
+    margin-bottom: 0.2em;
+}
+input#j_idt19\:streetAddress {
+    margin-left: 0.85em;
+    margin-bottom: 0.2em;
+}
+input#j_idt19\:country {
+    margin-left: 9.4em;
+    margin-bottom: 0.2em;
+}
+input#j_idt19\:zipCode {
+    margin-left: 8.65em;
+    margin-bottom: 0.2em;
+}
+input[type=text] {
+    background-color: #3CBC8D;
+    color: black;
+    transition: width 0.8s ease-in-out;
+}
+
+ input[type=text]:focus {
+   width: 40%;
+ }
+ input#j_idt19\:zipCode:focus {
+    width: 20%;
+  }
