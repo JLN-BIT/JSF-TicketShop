@@ -99,7 +99,7 @@
                         <h:outputLabel for="streetAddress">Street &amp; House Number: </h:outputLabel>
                         <h:inputText id="streetAddress"
                                      value="#{billing.newBillingAddress.streetAddress}"
-                                     size="70"
+                                     size="30"
                                      required="true"
                                      requiredMessage="Please enter your street and house number."
                                      validatorMessage="Please enter a street and house number.">
@@ -118,7 +118,7 @@
                             <f:validateLength minimum="1" maximum="10"/>
 
                         </h:inputText>
-
+                        <br/>
                         <h:outputLabel for="city">    City: </h:outputLabel>
                         <h:inputText id="city"
                                      value="#{billing.newBillingAddress.city}"
