@@ -68,7 +68,6 @@ public class JsfSpringApplication extends SpringBootServletInitializer {
         repository.save( new Product("McLaren Driving Experience", "Drive a Mclaren Senna around the Nurburgring. This one will never let you down. Maybee its the most spectacular thing you have ever done.", new BigDecimal("895.00"), "McLaren"));
         repository.save( new Product("Porsche Museum", "Visit the Porsche Museum in Stuttgart-Zuffenhausen and see all the famous Porsche cars.", new BigDecimal("49.00"), "Porsche-Museum"));
 
-         // repository.save(new BillingAddress("1", "Peter", "Weber", "Magicstreet 1", "Magierhausen", "12345", "Germany"));
 
 
           // fetch all products

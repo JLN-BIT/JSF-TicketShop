@@ -40,7 +40,6 @@ input#j_idt20\:city {
     margin-bottom: 0.2em;
 }
 input[type=text],input[type=password] {
-    background-color: #2a83f1;
     color: white;
     transition: width 0.8s ease-in-out;
     border-radius: 8px;
