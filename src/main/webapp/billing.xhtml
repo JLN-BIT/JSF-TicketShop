@@ -48,17 +48,6 @@
             <h:messages styleClass="validation-messages"/>
 
                 <h:panelGrid columns="2" styleClass="form-grid" columnClasses="form-column-label,form-column-input">
-
-                    <!-- <p>#{userDetails.user.username}</p>
-
-                     <br/>
-                      <p>#{billing.getBillingAddresses(userDetails.user)[0].firstName} #{billing.getBillingAddresses(userDetails.user)[0].lastName} </p>
-                     <p>#{billing.getBillingAddresses(userDetails.user)[0].streetAddress} </p>
-                        <p>#{billing.getBillingAddresses(userDetails.user)[0].zipCode} #{billing.getBillingAddresses(userDetails.user)[0].city} </p>
-                        <p>#{billing.getBillingAddresses(userDetails.user)[0].country}  </p>-->
-
-
-
                      <table>
 
                         <ui:repeat value="#{billing.getBillingAddresses(userDetails.user)}" var="billingAddress" varStatus="status">
