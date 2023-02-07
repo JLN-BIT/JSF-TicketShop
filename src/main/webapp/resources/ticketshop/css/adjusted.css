@@ -15,27 +15,27 @@ billing-address-mouse-enabled{
 
 billing-address-mouse-disabled{
 }
-input#j_idt20\:firstName {
+input#j_idt20\:firstName, .input-text-firstName {
     margin-left: 7.95em;
    margin-bottom: 0.2em;
 }
-input#j_idt20\:lastName {
+input#j_idt20\:lastName, .input-text-lastName {
     margin-left: 8em;
     margin-bottom: 0.2em;
 }
-input#j_idt20\:streetAddress {
+input#j_idt20\:streetAddress, .input-text-streetaddress {
     margin-left: 0.85em;
     margin-bottom: 0.2em;
 }
-input#j_idt20\:country {
+input#j_idt20\:country, .input-text-country {
     margin-left: 9.4em;
     margin-bottom: 0.2em;
 }
-input#j_idt20\:zipCode {
+input#j_idt20\:zipCode, .input-text-zipcode {
     margin-left: 8.65em;
     margin-bottom: 0.2em;
 }
-input#j_idt20\:city {
+input#j_idt20\:city, .input-text-city {
     margin-left: 11.51em;
     margin-bottom: 0.2em;
 }
