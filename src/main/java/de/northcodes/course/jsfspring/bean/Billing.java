@@ -34,8 +34,5 @@ public class Billing  {
     public void saveNewBillingAddress(){
         newBillingAddress.setOwner(userManager.getCurrentUser());
         billingService.setBillingAddress(newBillingAddress);
-
-
-
     }
 }

@@ -6,10 +6,6 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
 <ui:composition template="/templates/page-template.xhtml">
-
-
-
-
     <ui:param name="pageTitle" value="Billing Addresses"/>
     <ui:define name="panel-top">
         <section>
@@ -18,7 +14,6 @@
         </section>
     </ui:define>
     <ui:define name="panel-main">
-
 
         <script>
                         function callStyle(id){
@@ -33,17 +28,12 @@
                                       element.getElementsByClassName("billing-address")[0].className="billing-address billing-address-visible";
                                          element.getElementsByClassName("billing-button")[0].textContent='-';
                                           element.getElementsByClassName("billing-button")[0].disabled=true;
-
-
                                      }
                             });
                         }
-
                         function show_alert() {
                               //alert("Not implemented yet!");
                             }
-
-
                     </script>
 
         <section>
@@ -51,7 +41,6 @@
 
                 <h:panelGrid columns="2" styleClass="form-grid" columnClasses="form-column-label,form-column-input">
                      <table>
-
                         <ui:repeat value="#{billing.getBillingAddresses(userDetails.user)}" var="billingAddress" varStatus="status">
                             <tr id="#{billingAddress.id}" class="billing-address-row">
                                 <td>
@@ -64,10 +53,7 @@
                                     <p>#{billing.getBillingAddresses(userDetails.user)[status.index].zipCode} #{billing.getBillingAddresses(userDetails.user)[status.index].city} </p>
                                     <p>#{billing.getBillingAddresses(userDetails.user)[status.index].country}  </p>
                                 </td>
-
                             </tr>
-
-
                         </ui:repeat>
 
                     </table>
@@ -148,7 +134,7 @@
                         <br/>
                         <br/>
                         <h:commandButton value="Submit" onclick="show_alert();" action="#{billing.saveNewBillingAddress}"  />
-                    </h:form> <!-- action="{billing.setBillingAddress(userDetails.user)}" TO ADJUST  -->
+                    </h:form>
                 </h:panelGrid>
 
         </section>

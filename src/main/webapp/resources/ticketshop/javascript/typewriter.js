@@ -1,4 +1,4 @@
-
+//JavaScript for Typewriter Function
 function typeWriter(elementId, text, speed) {
   var i = 0;
   var element = document.getElementById(elementId);

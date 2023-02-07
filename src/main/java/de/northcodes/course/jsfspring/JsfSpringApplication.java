@@ -88,8 +88,6 @@ public class JsfSpringApplication extends SpringBootServletInitializer {
       };
     }
 
-
-
     @Bean
     public CommandLineRunner demo1() {
 
