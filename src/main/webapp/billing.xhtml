@@ -32,7 +32,7 @@
                             });
                         }
                         function show_alert() {
-                              //alert("Not implemented yet!");
+                              alert("Not implemented yet!");
                             }
                     </script>
 
@@ -52,7 +52,9 @@
                                     <p>#{billing.getBillingAddresses(userDetails.user)[status.index].streetAddress} </p>
                                     <p>#{billing.getBillingAddresses(userDetails.user)[status.index].zipCode} #{billing.getBillingAddresses(userDetails.user)[status.index].city} </p>
                                     <p>#{billing.getBillingAddresses(userDetails.user)[status.index].country}  </p>
+                                    <button type="button" class="delete-button" onclick="show_alert()"  > Delete Addresses </button>
                                 </td>
+
                             </tr>
                         </ui:repeat>
 
