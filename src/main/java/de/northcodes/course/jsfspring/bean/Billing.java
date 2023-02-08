@@ -29,7 +29,8 @@ public class Billing  {
     public BillingAddress getNewBillingAddress(){return newBillingAddress; }
 
 
-    public List<BillingAddress> getBillingAddresses(User owner) { return billingService.getAllBillingAdresses(owner);} //Owner can also be accessed by userManager.getCurrentUser()
+    public List<BillingAddress> getBillingAddresses(User owner) { return billingService.getAllBillingAdresses(owner);}
+    //Owner could also be accessed by userManager.getCurrentUser()
 
     public void saveNewBillingAddress(){
         newBillingAddress.setOwner(userManager.getCurrentUser());
